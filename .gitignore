@@ -9,7 +9,7 @@
 /coverage
 
 # production
-
+/build
 
 # misc
 .DS_Store
@@ -30,6 +30,3 @@ package.json
 package-lock.json
 
 
-/src
-/public
-/node_modules
