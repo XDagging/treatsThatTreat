@@ -63,7 +63,7 @@ function Index(props) {
         return () => {
             clearInterval(typewriter)
         }
-    },[])
+    },[i])
 
 
     useEffect(() => {
