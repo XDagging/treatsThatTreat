@@ -12,13 +12,13 @@ function App(props) {
 
     return (
         <>
-        {(currentPage == "Index") && (
+        {(currentPage === "Index") && (
             <div className="overflow-x-hidden">
             <Index setCurrentPage={setCurrentPage} />
         </div>
         )}
         
-        {(currentPage == "Users") && (
+        {(currentPage === "Users") && (
             <Users setCurrentPage={setCurrentPage} />
         )}
 

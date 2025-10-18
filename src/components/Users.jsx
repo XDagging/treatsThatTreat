@@ -34,7 +34,7 @@ export default function Users(props) {
                     
                 
                     <div className="lg:w-full w-5/6 lg:mx-0 mx-auto self-start justify-self-start border-2">
-                        <img src={sebaPic} className="max-h-[350px] w-full object-cover" />
+                        <img alt="seba pic" src={sebaPic} className="max-h-[350px] w-full object-cover" />
 
                     </div>
                 </div>
@@ -50,7 +50,7 @@ export default function Users(props) {
                     
                 
                     <div className=" lg:mx-0 mx-auto self-start justify-self-start border-2 lg:w-full w-5/6">
-                        <img src={maxPic} className="max-h-[350px] w-full object-cover" />
+                        <img alt="max pic" src={maxPic} className="max-h-[350px] w-full object-cover" />
 
                     </div>
                 </div>
@@ -66,7 +66,7 @@ export default function Users(props) {
                     
                 
                     <div className=" lg:mx-0 mx-auto self-start justify-self-start border-2 w-full lg:max-h-[10000vh]">
-                        <img src={josephPic} className="max-h-[350px] w-full object-cover" />
+                        <img alt="joseph pic" src={josephPic} className="max-h-[350px] w-full object-cover" />
 
                     </div>
                 </div>
