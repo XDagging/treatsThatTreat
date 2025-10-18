@@ -11,7 +11,7 @@ function Navbar(props) {
 
 
 <div className="w-full text-white p-2">
-    <div className="p-2 mx-auto w-fit h-fit"><img src={require("./logo.png")} className="object-cover w-20 h-20 rounded-full border-2 logo"/></div>
+    <div className="p-2 mx-auto w-fit h-fit cursor-pointer" onClick={() => props.setCurrentPage("Index")}><img alt="logo" src={require("./logo.png")} className="object-cover w-20 h-20 rounded-full border-2 logo"/></div>
 </div>
 
 
@@ -35,7 +35,7 @@ function Navbar(props) {
 </div>
 
 <div className="w-full text-white p-2 mt-[20%]">
-<a href="#mission"><div className="p-2 mx-auto w-fit h-fit bg-[#BDE0FE]"><FaUser size="2rem" /></div></a>
+<a href="#mission" onClick={() => props.setCurrentPage("Users")}><div className="p-2 mx-auto w-fit h-fit bg-[#BDE0FE]"><FaUser size="2rem" /></div></a>
     
 </div>
 

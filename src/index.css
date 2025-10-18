@@ -6,17 +6,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 .kanit {
   font-family: 'Kanit', sans-serif;
 }
 
+.manrope {
+  font-family: "Manrope", sans-serif;
+}
 
 
 .background-image {
   /* background-image: url("./components/logo.png"); */
   background-image: url("background_image.png");
+  /* background-position: center center; */
   background-repeat: no-repeat;
   background-size: cover;
 }

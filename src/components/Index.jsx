@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from "react"
+import {useState, useEffect, useRef} from "react"
 import Navbar from "./Navbar.jsx"
-import { clear } from "@testing-library/user-event/dist/clear.js"
 
-
+const ImageNih = require("./NIH_Image.jpg")
+const carriagePhoto = require("./carriageHill.jpg")
+const fireStation = require("./fireStation.jpg")
+const carriageHillV2 = require("./carriageHillV2.jpg")
+const suburbanPhoto = require("../background_image.png")
 
 function Index(props) {
     const totalText = "We give back to our heros."
-    let currentText = ""
+    const currentText = useRef("");
     let i=-1
 
     const [currentDonor, setCurrentDonor] = useState(0)
@@ -14,13 +17,29 @@ function Index(props) {
     
     const donorList = [
     {
-        img: 'https://www.hopkinsmedicine.org/-/media/images/locations/ignore/north-building-entrance.jpeg',
+        img: suburbanPhoto,
         description: "Surburban Hospital. Donated over 150+ cookies"
     },
     {
-        img: 'https://www.senioradvisor.com/images/opt_big/2017/08/25/10/32/10/656/y32kPsTbQIeiC9VjpZok.jpg',
-        description: "Carriage Hill Nursery Home. Donated over 160+ cookies"
-    }]
+        img: carriagePhoto,
+        description: "Carriage Hill Nursery Home. Donated over 400+ cookies"
+    },
+    {
+        img: carriageHillV2,
+        description: "Carriage Hill Nursery Home. Donated over 400+ cookies"
+    },
+    {
+        img: ImageNih,
+        description: "Children's Inn NIH. Donated over 200+ cookies"
+    },
+    {
+        img: fireStation,
+        description: "Bethesda Fire Station. Donated over 150+ cookies"
+    }
+
+        
+
+]
     useEffect(() => {
 
 
@@ -31,8 +50,8 @@ function Index(props) {
             i++
             if (i <= totalText.length-1) {
                 
-                currentText = currentText + totalText[i]
-                document.getElementById("typewriter").innerHTML = currentText
+                currentText.current += totalText[i]
+                document.getElementById("typewriter").innerHTML = currentText.current
             } else {
                 clearInterval(typewriter)
             }
@@ -85,20 +104,29 @@ function Index(props) {
         <>
 
         <div className="hidden lg:block">
-        <Navbar />
+        <Navbar setCurrentPage={props.setCurrentPage} />
         </div>
     
 
 
-        <div className="md:ml-[7vw] bg-[#EAE2B7]">
+        <div className="md:ml-[7vw] bg-primary">
             
             
-        <div className="w-full sm:h-[40vh] h-[60vh] relative background-image">
-            <div className="absolute inset-0 backdrop-blur-sm"></div>
+        <div className="w-full sm:h-[40vh] h-[60vh] relative hero text-center background-image min-h-screen">
+            {/* <div className="absolute inset-0 backdrop-blur-sm"></div> */}
+            <div className="hero-overlay bg-opacity-70 bg-black"></div>
             <div className="relative z-50 w-full h-full">
             <div className="absolute left-[50%] top-[50%]" style={{transform: "translate(-50%,-50%)"}}>
-            <p id="typewriter" className="text-6xl font-bubble p-5    text-white"></p>
-            <p className="text-lg kanit text-center font-bubble text-white ">Cookie by cookie</p>
+            <p id="typewriter" className="text-8xl font-bubble p-5 text-white"></p>
+            <p className="kanit text-center font-bubble text-white text-3xl">Cookie by cookie</p>
+            {/* <div className="hero-content">
+                <div>
+                
+                </div>
+               
+                <p className="text-lg kanit text-center font-bubble text-white ">Cookie by cookie</p>
+            </div> */}
+            
             </div>
                 
                 
@@ -106,16 +134,17 @@ function Index(props) {
         </div>
 
         {/* testimonial */}
-        <div id="stats" className=" bg-[#FFAFCC] w-full">
+        <div id="stats" className="w-full ">
             <section id="stats">
-            <p className="font-bubble text-4xl pl-4 py-5 text-[#f41fc5] ">Our stats: </p>
+
+            <p className="font-bubble text-4xl pl-4 py-5 text-black">Our stats: </p>
             <div className="md:h-[50vh] h-[100vh] w-full grid md:grid-cols-2 grid-cols-1 md:gap-0 gap-y-10 justify-items-stretch items-stretch">
 
             <div className="relative h-full w-full font-extrabold">
-                <div className="absolute top-[50%] left-[50%] bg-[#BDE0FE] md:w-4/6 w-5/6 h-full rounded-lg p-2 font-bubble" style={{transform: "translate(-50%, -50%)"}}>
-                    <p className="text-white text-3xl text-center mt-4">We've handbaked over:</p>
-                    <p className="text-center  text-white p-5 my-10 rounded-lg bg-[#66b7fd] w-fit mx-auto select-none text-4xl">500+</p>
-                    <p className="text-center  text-white text-3xl md:text-5xl mt-5">C🍪🍪kies</p>
+                <div className="absolute top-[50%] left-[50%] bg-secondary md:w-4/6 w-5/6 h-full rounded-lg p-2 font-bubble" style={{transform: "translate(-50%, -50%)"}}>
+                    <p className="text-accent text-3xl text-center mt-4">We've handbaked over:</p>
+                    <p className="text-center  text-accent p-5 my-10 rounded-lg bg-[#66b7fd] w-fit mx-auto select-none text-4xl">10,000+</p>
+                    <p className="text-center  text-accent text-3xl md:text-5xl mt-5">C🍪🍪kies</p>
                 </div>
 
 
@@ -125,7 +154,7 @@ function Index(props) {
             <div className="relative h-full w-full font-extrabold">
                 <div className="absolute top-[50%] left-[50%] bg-[#BDE0FE] md:w-4/6 w-5/6 h-full rounded-lg p-2 font-bubble" style={{transform: "translate(-50%, -50%)"}}>
                     <p className="text-white text-3xl text-center my-4">Our Ingredients</p>
-                    <div className="lg:w-3/6 w-5/6 h-3/6 border-2 mx-auto rounded-lg"><img src={require("./ingredients.png")} className="object-cover w-full h-full rounded-lg"/></div>
+                    <div className="lg:w-3/6 w-5/6 h-3/6 border-2 mx-auto rounded-lg"><img alt="ingredients img" src={require("./ingredients.png")} className="object-cover w-full h-full rounded-lg"/></div>
                     <p className="text-white text-center md:text-2xl text-lg mt-8">sourced locally only using top quality, handcrafted, everytime</p>
                     {/* <p className="text-center  text-white p-5 mt-5 rounded-lg bg-slate-500 w-fit mx-auto select-none text-4xl">500+</p>
                     <p className="text-center  text-white text-5xl mt-5">C🍪🍪kies</p> */}
@@ -147,7 +176,8 @@ function Index(props) {
             </div> */}
 
         </div>
-        </section>
+            
+            </section>
 
 
 
@@ -159,7 +189,7 @@ function Index(props) {
         <div className="h-[50vh] bg-[#80ffdb]">
         <p className="font-bubble text-3xl text-center">Donor Recipients</p>
             <div className="md:w-2/6 w-5/6 h-5/6 mt-5 rounded-lg mx-auto relative">
-                <img src={donorList[currentDonor].img} className="rounded-t-lg rounded-b-lg w-full h-full object-cover" /> 
+                <img alt="dono images" src={donorList[currentDonor].img} className="rounded-t-lg rounded-b-lg w-full h-full object-cover" /> 
                 <p className=" w-full bg-white p-2 absolute bottom-0 left-0 text-black font-bubble rounded-b-lg">{donorList[currentDonor].description}</p>
             </div>
         
